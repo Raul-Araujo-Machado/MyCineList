@@ -1,0 +1,10 @@
+create database checpoint1;
+use checpoint1;
+create table filme (
+codigo int auto_increment primary key,
+titulo varchar(20),
+produtora varchar(50),
+duracao float,
+sinopse text
+);
+select * from filme;
