@@ -14,7 +14,6 @@
 
         <script rsc="text/javascript">
             $(function() {
-                var dados_form = $(this).serialize();
                 $.ajax({
                     type:"post",
                     url:"../Controller/listandoFilme.php",
