@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--link bootrap e jquery-->
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -13,8 +14,9 @@
 
         <script rsc="text/javascript">
             $(function() {
-                
+                var dados_form = $(this).serialize();
                 $.ajax({
+                    type:"post",
                     url:"../Controller/listandoFilme.php",
                     success: function(responseData){
                         var resultado = JSON.parse(responseData);
@@ -27,8 +29,6 @@
                             $duracaotd = $("<td style='width: 20px;'>" + resultado[i].duracao + "</td>");
                             $sinopsetd = $("<td>" + resultado[i].sinopse + "</td>");
                             $favoritotd = $("<td><button type='button' class='btn btn-success'>Favoritar</button></td>");
-
-
                            // $novotr.append($caminhotd);
                             $novotr.append($caminhotd);
                             $novotr.append($titulotd);
@@ -40,13 +40,14 @@
                             $(tabela).append($novotr);
                         } 
                         //se tiver retornado algum erro do banco de dados
-                    },
-                    error: function(request,status,error){
-                        $("#mensagemDiv").html(""+responseText);
-                    }
-                });
+                        },
+                        error: function(request,status,error){
+                            $("#mensagemDiv").html(""+responseText);
+                        }
+                    });
             });
         </script>
+
     </head>
     <body>
         <?php

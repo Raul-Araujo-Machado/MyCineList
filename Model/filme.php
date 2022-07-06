@@ -21,9 +21,9 @@ class Filme{
 
         $r = $banco->queryInsertDados($string_sql);
         if($r == 1)
-            return true;
+            echo '<h4 style = "color: red">Sucesso</h4>';
         else
-            return false;
+            echo '<h4 style = "color: red">'.$r.'</h4>';
     }
 
 

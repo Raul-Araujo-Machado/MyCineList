@@ -3,9 +3,10 @@ class Banco{
 
 	private $connect;
 	
+	
 	function __construct()
 	{
-		$this->connect = new mysqli('localhost','root','admin', 'checpoint1') ;
+		$this->connect = new mysqli('localhost','root','admin', 'checkpoint2');
  		
 	}
 	
@@ -43,8 +44,6 @@ class Banco{
 	  	echo json_encode($result);
 		mysqli_close($this->connect);
 	}
-
-    
 
 }
 
